@@ -31,8 +31,8 @@ class FunctionalityController extends GetxController {
 
   String constructUrl(String category) {
     return category == "topHeadlines"
-        ? "https://newsapi.org/v2/top-headlines?country=za&apiKey=c849fff44b7f434ba1948df7e2f0ebba"
-        : "https://newsapi.org/v2/top-headlines?country=za&category=$category&apiKey=c849fff44b7f434ba1948df7e2f0ebba";
+        ? "https://newsapi.org/v2/top-headlines?country=za&apiKey=API_KEY"
+        : "https://newsapi.org/v2/top-headlines?country=za&category=$category&apiKey=API_KEY";
   }
 
   loadLatestNews(String category) async {
@@ -86,7 +86,7 @@ class FunctionalityController extends GetxController {
 
   loadWeather() async {
     String url =
-        "http://api.openweathermap.org/data/2.5/forecast?id=524901&appid=e597df96d9b9eb8101b111904f1bb4d7";
+        "http://api.openweathermap.org/data/2.5/forecast?id=524901&appid=API_KEY";
     var response = await http.get(Uri.parse(url));
     if (response.statusCode == 200) {
       var map = json.decode(response.body);
