@@ -19,7 +19,10 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
-  //this is the actual
+
+  //this is the actual root of the project
+  //this is a commit to be pulled
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations(
