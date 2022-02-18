@@ -33,26 +33,30 @@ class MyApp extends StatelessWidget {
     );
     final _themeMode = Get.put(PreferenceController());
     return Obx(() {
-      return GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-        initialRoute: '/home',
-        initialBinding: Binder(),
-        themeMode: _themeMode.themeMode.value == "System"
-            ? ThemeMode.system
-            : _themeMode.getThemeMode,
-        darkTheme: newsDarkTheme,
-        theme: newsLightTheme,
-        getPages: [
-          GetPage(
-            name: '/home',
-            page: () => Home(),
-          ),
-          GetPage(
-            name: '/search',
-            page: () => search_view(),
-          ),
-        ],
-      );
+      return getApp(_themeMode);
     });
+  }
+
+  GetMaterialApp getApp(PreferenceController _themeMode) {
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialRoute: '/home',
+      initialBinding: Binder(),
+      themeMode: _themeMode.themeMode.value == "System"
+          ? ThemeMode.system
+          : _themeMode.getThemeMode,
+      darkTheme: newsDarkTheme,
+      theme: newsLightTheme,
+      getPages: [
+        GetPage(
+          name: '/home',
+          page: () => Home(),
+        ),
+        GetPage(
+          name: '/search',
+          page: () => search_view(),
+        ),
+      ],
+    );
   }
 }
